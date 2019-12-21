@@ -1,0 +1,27 @@
+{% extends "students.html" %}
+
+{% block tr %}
+    <style>
+        .l1 {
+            padding: 5px;
+            width: 200px;
+            height: 40px;
+            letter-spacing: 2px;
+
+        }
+
+        h2 {
+            padding: 5px;
+            width: 200px;
+            height: 40px;
+            letter-spacing: 2px;
+        }
+    </style>
+    <h2>排名前五的学生</h2>
+    <hr>
+    <ol>
+        {% for user in users %}
+            <li class="l1">{{ user.name }},总分{{ user.chinese + user.math }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

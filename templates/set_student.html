@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息修改界面</title>
+    <style>
+        input {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+<h2>这是{{ user.name }}的信息</h2>
+<hr>
+<form action="/set_list/" method="POST" enctype="multipart/form-data">
+    性别：
+    男<input type="radio" name="gender" value="male" {% if user.gender=="male" %}checked{% endif %}>
+    女<input type="radio" name="gender" value="female" {% if user.gender=="female" %}checked{% endif %}>
+
+    <br>
+    语文：
+    <input type="text" name="chinese" value="{{ user.chinese }}">
+    <br>
+    数学：
+    <input type="text" name="math" value="{{ user.math }}">
+    <br>
+    <input type="file" name="avatar">
+    <br>
+    <input type="hidden" name="id" value="{{ user.id }}">
+    <input type="submit">
+</form>
+
+</body>
+</html>

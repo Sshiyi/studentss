@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息表</title>
+    <style>
+        a {
+            padding: 5px;
+            width: 50px;
+            height: 20px;
+
+
+            display: table-cell;
+            vertical-align: middle
+        }
+
+        li {
+            list-style: none;
+        }
+
+
+        .div2 {
+            float: left;
+        }
+
+        .div1 {
+
+            float: right;
+
+        }
+    </style>
+</head>
+<body>
+<table>
+    <div class="div2">
+
+        <ul>学生信息表</ul>
+        <hr>
+        {% for user in student %}
+            <li>
+                <a>{{ user.id }}</a>
+                <a href="/info?id={{ user.id }}">{{ user.name }}</a>
+                <a href="/set_list?id={{ user.id }}">修改</a>
+            </li>
+        {% endfor %}
+
+    </div>
+    <div class="div1">
+        {% block tr %}这里还没信息{% endblock %}
+    </div>
+</table>
+</body>
+</html>
